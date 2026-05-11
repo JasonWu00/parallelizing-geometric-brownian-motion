@@ -1,0 +1,6 @@
+description, size, time (s), speedup, notes
+serial, 2048, 0.329573, 1.0, serial
+MPI+OMP, 2048, 0.022481, 14.66, 64 ranks + 32 threads
+MPI, 2048, 0.019368, 17.02, 64 ranks
+OMP, 2048, 0.009679, 34.05, 64 threads
+CUDA, 2048, 0.011607, 28.39, 1024 threads
