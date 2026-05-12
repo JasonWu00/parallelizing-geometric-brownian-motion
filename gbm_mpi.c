@@ -60,7 +60,7 @@ void print_gbm_matrix(double* gbm_matrix, int runs, int steps) {
 // Simulates a Brownian Motion step.
 double brownian_step(double dt, double mu, double sigma) {
   // calculate left and right hand side of what's inside the exp() func
-  double left = mu - 0.5*pow(sigma, 2)*dt;
+  double left = mu + 0.5*pow(sigma, 2)*dt;
   //double right = sigma * sqrt(dt) * (double)normal_dist_randn(0, dt);
   // See comment after the function on a discussion sqrt(dt).
   double right = sigma * sqrt(dt) * (double)gauss();
@@ -75,7 +75,7 @@ Since gauss() has a std of 1, multiply by sqrt(dt) to adjust.
 */
 
 // calculate the S_i value given S_0: S_i = S0 * exp(X(t))
-// X(t) = (mu - 0.5*sigma**2)*t + sigma*sqrt(t)*normal_dist_randn(0, 1)
+// X(t) = (mu + 0.5*sigma**2)*t + sigma*sqrt(t)*normal_dist_randn(0, 1)
 // t is a timedelta, difference in time between 0 and i
 // the normal distribution rand simulates a random walk, while sqrt(t) scales it relative to the time difference
 
